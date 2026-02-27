@@ -10,11 +10,10 @@ public class PalindromeCheckerApp {
         System.out.println("Application Version : 1.0");
         System.out.println("===========================================\n");
 
-        // UC2 - Hardcoded Palindrome Check
-        String word = "madam";   // Hardcoded string
+        // UC2 - Hardcoded Palindrome Check (Two Pointer Method)
+        String word = "madam";
 
         boolean isPalindrome = true;
-
         int start = 0;
         int end = word.length() - 1;
 
@@ -28,9 +27,27 @@ public class PalindromeCheckerApp {
         }
 
         if (isPalindrome) {
-            System.out.println("The word \"" + word + "\" is a Palindrome.");
+            System.out.println("UC2: The word \"" + word + "\" is a Palindrome.");
         } else {
-            System.out.println("The word \"" + word + "\" is NOT a Palindrome.");
+            System.out.println("UC2: The word \"" + word + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println();
+
+        // UC3 - Palindrome Check Using String Reverse
+        String input = "level";
+        String reversed = "";
+
+        // Reverse string using for loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
+        }
+
+        // Compare original and reversed strings
+        if (input.equals(reversed)) {
+            System.out.println("UC3: The word \"" + input + "\" is a Palindrome.");
+        } else {
+            System.out.println("UC3: The word \"" + input + "\" is NOT a Palindrome.");
         }
     }
 }
