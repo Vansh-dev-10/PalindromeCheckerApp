@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
@@ -78,6 +80,33 @@ public class PalindromeCheckerApp {
             System.out.println("UC4: The word \"" + input2 + "\" is a Palindrome.");
         } else {
             System.out.println("UC4: The word \"" + input2 + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println();
+
+
+        // ================= UC5 =================
+        // Stack-Based Palindrome Checker
+        String input3 = "noon";
+        Stack<Character> stack = new Stack<>();
+
+        // Push characters into stack
+        for (int i = 0; i < input3.length(); i++) {
+            stack.push(input3.charAt(i));
+        }
+
+        String reversedUsingStack = "";
+
+        // Pop characters from stack
+        while (!stack.isEmpty()) {
+            reversedUsingStack = reversedUsingStack + stack.pop();
+        }
+
+        // Compare original and reversed strings
+        if (input3.equals(reversedUsingStack)) {
+            System.out.println("UC5: The word \"" + input3 + "\" is a Palindrome.");
+        } else {
+            System.out.println("UC5: The word \"" + input3 + "\" is NOT a Palindrome.");
         }
     }
 }
