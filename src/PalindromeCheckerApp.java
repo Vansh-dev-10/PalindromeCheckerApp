@@ -1,6 +1,7 @@
 import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Deque;
 
 public class PalindromeCheckerApp {
 
@@ -92,14 +93,12 @@ public class PalindromeCheckerApp {
         String input3 = "noon";
         Stack<Character> stack = new Stack<>();
 
-        // Push characters into stack
         for (int i = 0; i < input3.length(); i++) {
             stack.push(input3.charAt(i));
         }
 
         String reversedUsingStack = "";
 
-        // Pop characters from stack
         while (!stack.isEmpty()) {
             reversedUsingStack = reversedUsingStack + stack.pop();
         }
@@ -120,7 +119,6 @@ public class PalindromeCheckerApp {
         Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack2 = new Stack<>();
 
-        // Enqueue & Push characters
         for (int i = 0; i < input4.length(); i++) {
             char ch = input4.charAt(i);
             queue.add(ch);     // FIFO
@@ -129,7 +127,6 @@ public class PalindromeCheckerApp {
 
         boolean isPalindromeQueueStack = true;
 
-        // Compare dequeue and pop
         while (!queue.isEmpty()) {
             if (queue.remove() != stack2.pop()) {
                 isPalindromeQueueStack = false;
@@ -141,6 +138,34 @@ public class PalindromeCheckerApp {
             System.out.println("UC6: The word \"" + input4 + "\" is a Palindrome.");
         } else {
             System.out.println("UC6: The word \"" + input4 + "\" is NOT a Palindrome.");
+        }
+
+        System.out.println();
+
+
+        // ================= UC7 =================
+        // Deque-Based Optimized Palindrome Checker
+        String input5 = "civic";
+
+        Deque<Character> deque = new LinkedList<>();
+
+        for (int i = 0; i < input5.length(); i++) {
+            deque.addLast(input5.charAt(i));
+        }
+
+        boolean isPalindromeDeque = true;
+
+        while (deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) {
+                isPalindromeDeque = false;
+                break;
+            }
+        }
+
+        if (isPalindromeDeque) {
+            System.out.println("UC7: The word \"" + input5 + "\" is a Palindrome.");
+        } else {
+            System.out.println("UC7: The word \"" + input5 + "\" is NOT a Palindrome.");
         }
     }
 }
